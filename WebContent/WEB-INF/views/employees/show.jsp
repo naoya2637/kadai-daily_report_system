@@ -4,23 +4,24 @@
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
         <c:choose>
-            <c:when test="${employee != null }">
-                <h2>id : ${imployee.id } の従業員情報　詳細ページ</h2>
+            <c:when test="${employee != null}">
+                <h2>id : ${employee.id} の従業員情報　詳細ページ</h2>
+
                 <table>
                     <tbody>
                         <tr>
                             <th>社員番号</th>
-                            <td><c:out value="${employee.code }"/></td>
+                            <td><c:out value="${employee.code}" /></td>
                         </tr>
                         <tr>
                             <th>氏名</th>
-                            <td><c:out value="${ employee.name}"/></td>
+                            <td><c:out value="${employee.name}" /></td>
                         </tr>
                         <tr>
                             <th>権限</th>
                             <td>
                                 <c:choose>
-                                    <c:when test="${employee.admin_flag == 1 }">管理者</c:when>
+                                    <c:when test="${employee.admin_flag == 1}">管理者</c:when>
                                     <c:otherwise>一般</c:otherwise>
                                 </c:choose>
                             </td>
@@ -28,19 +29,19 @@
                         <tr>
                             <th>登録日時</th>
                             <td>
-                                <fmt:formatDate value="${employee.created_at }" pattern="yyyy-MM-dd HH:mm:ss" />
+                                <fmt:formatDate value="${employee.created_at}" pattern="yyyy-MM-dd HH:mm:ss" />
                             </td>
                         </tr>
                         <tr>
                             <th>更新日時</th>
                             <td>
-                                <fmt:formatDate value="${employee.updated_at }" pattern="yyyy-MM-dd HH:mm:ss"/>
+                                <fmt:formatDate value="${employee.updated_at}" pattern="yyyy-MM-dd HH:mm:ss" />
                             </td>
                         </tr>
                     </tbody>
-
-                    <p><a href="<c:url value='/employees/edit?=${employee.id }' />">この従業員情報を編集する</a></p>
                 </table>
+
+                <p><a href="<c:url value='/employees/edit?id=${employee.id}' />">この従業員情報を編集する</a></p>
             </c:when>
             <c:otherwise>
                 <h2>お探しのデータは見つかりませんでした。</h2>
@@ -50,13 +51,3 @@
         <p><a href="<c:url value='/employees/index' />">一覧に戻る</a></p>
     </c:param>
 </c:import>
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>Insert title here</title>
-    </head>
-    <body>
-
-    </body>
-</html>
